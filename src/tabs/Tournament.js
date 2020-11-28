@@ -17,6 +17,7 @@ import Header from "@vkontakte/vkui/dist/components/Header/Header";
 import Card from "@vkontakte/vkui/dist/components/Card/Card";
 import CardScroll from "@vkontakte/vkui/dist/components/CardScroll/CardScroll";
 import CardGrid from "@vkontakte/vkui/dist/components/CardGrid/CardGrid";
+import defHS from '../img/defaultHS.png';
 
 const Tournament = (props) => {
     let allTournamentsInfo = DataBase.getUserTournamentsInfo(props.fetchedUser);
@@ -44,9 +45,61 @@ const Tournament = (props) => {
                     Турниры в которых я участвую
                 </Cell>
                 <CardScroll>
-                    <Card size="l" mode="outline" >
+                    <Card size="m" mode="shadow" >
                         <div style={{
-                            height: 120}} />
+                            height: 228,
+                            width: 448
+                        }} >
+                            <table style={{display:'flex',width : '100%', height: '50%',
+                                }}>
+                                <img src={defHS} width={"100%"} align={"Center"} />
+                            </table>
+                            <table style={{width : '100%'}}>
+                                <tr style={{width : '100%'}}>
+                                    <td style={{
+                                        width: '50%',
+                                        color: 'Green',
+                                        textAlign: 'center'
+                                    }} >
+                                        Начало: {allTournamentsInfo.myTournaments[1]["StartData"]} {allTournamentsInfo.myTournaments[1]["StartTime"]}
+                                    </td>
+                                    <td style={{
+                                        width: '50%',
+                                        color: 'Red',
+                                        textAlign: 'center'
+                                    }}>
+                                        Окончание: {allTournamentsInfo.myTournaments[1]["EndData"]} {allTournamentsInfo.myTournaments[1]["EndTime"]}
+                                    </td>
+                                </tr>
+                            </table>
+                            <table style={{width : '100%'}}>
+                                <tr style={{width: '100%'}}>
+                                    <td style={{
+                                        width: '100%',
+                                        textAlign: 'center',
+                                        fontSize: 'large'
+                                    }}>
+                                        {allTournamentsInfo.myTournaments[1]["Name"]}
+                                    </td>
+                                </tr>
+                            </table>
+                            <table style={{width : '100%'}}>
+                                <tr style={{width : '100%'}}>
+                                    <td style={{
+                                        width: '50%',
+                                        textAlign: 'center'
+                                    }} >
+                                        Призовой фонд: {allTournamentsInfo.myTournaments[1]["Prize"]}
+                                    </td>
+                                    <td style={{
+                                        width: '50%',
+                                        textAlign: 'center'
+                                    }}>
+                                        Вход: {allTournamentsInfo.myTournaments[1]["EnterPrice"]}
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
                     </Card>
                 </CardScroll>
             </Group>
@@ -55,21 +108,22 @@ const Tournament = (props) => {
                     Рекомендуемые турниры
                 </Cell>
                 <CardGrid>
-                    <Card size="m" mode="outline" >
+                    <Card size="m" >
+                        <div style={{
+                            height: 120}}>
+                        </div>
+                    </Card>
+                    <Card size="m">
                         <div style={{
                             height: 120}} />
                     </Card>
-                    <Card size="m" mode="outline" >
+                    <Card size="m">
                         <div style={{
                             height: 120}} />
                     </Card>
-                    <Card size="m" mode="outline" >
+                    <Card size="m">
                         <div style={{
-                            height: 120}} />
-                    </Card>
-                    <Card size="m" mode="outline" >
-                        <div style={{
-                            height: 120}} />
+                            height: 120}}/>
                     </Card>
                 </CardGrid>
             </Group>
