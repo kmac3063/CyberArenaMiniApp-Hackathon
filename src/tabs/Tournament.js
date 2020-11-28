@@ -31,6 +31,14 @@ const Tournament = (props) => {
 
     const closeModal = () => setActiveModal(null);
     const createTournament = (tour) => {
+        console.log(tour.tourName);
+        console.log(tour.dateBegin);
+        console.log(tour.dateEnd);
+        console.log(tour.ruleText);
+        console.log(tour.tourTupe);
+        console.log(tour.maxCommand);
+        console.log(tour.gameName);
+        console.log(tour.tourDescription);
         closeModal();
     }
     return (
@@ -68,7 +76,10 @@ const Tournament = (props) => {
                                     }}
                                 />
                             }
-                            actions={<Button mode="overlay_primary">Создать новый турнир</Button>}
+                            actions={<Button mode="overlay_primary"
+                            onClick={() => {setActiveModal("createTournament")}}>
+                                Создать новый турнир
+                            </Button>}
                         />
                     </Group>
                 :

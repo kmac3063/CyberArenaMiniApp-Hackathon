@@ -13,7 +13,6 @@ import Banner from "@vkontakte/vkui/dist/components/Banner/Banner";
 import Button from "@vkontakte/vkui/dist/components/Button/Button";
 
 const UserToursCell = (props) => {
-
     return (
             <Banner
                 before={<Avatar size={112} mode="image" src={props.title["imgUrl"]} />}
