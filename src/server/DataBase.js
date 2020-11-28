@@ -67,8 +67,32 @@ class DataBase {
         }
         props.myTournaments.push(tournament1);
         props.myTournaments.push(tournament2);
-        props.createdTournaments.push(tournament1);
+        //props.createdTournaments.push(tournament1);
         props.recomendedTournaments = [];
+        return props;
+    }
+
+    static getTavernInfo(fetchUser){
+        //запрос к бд
+        let props = {};
+        props.publics =[];
+        props.hommies = [];
+
+        let public1 = {
+            "publicAv": dotaImg,
+            "name": "DOTA 2",
+            "population": "2.5 млн",
+            "publicImg": null
+        };
+
+        let public2 = {
+            "publicAv": steamImg,
+            "name": "DOOM....",
+            "population": "200 тыс.",
+            "publicImg": null
+        };
+        props.publics.push(public1, public2, public1);
+
         return props;
     }
 
