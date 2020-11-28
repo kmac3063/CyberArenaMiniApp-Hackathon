@@ -18,6 +18,7 @@ import Card from "@vkontakte/vkui/dist/components/Card/Card";
 import CardScroll from "@vkontakte/vkui/dist/components/CardScroll/CardScroll";
 import CardGrid from "@vkontakte/vkui/dist/components/CardGrid/CardGrid";
 import defHS from '../img/defaultHS.png';
+import newTourCard from '../img/newTourCard.png';
 import UserToursCell from "../cards/UserToursCell";
 
 const Tournament = (props) => {
@@ -39,13 +40,16 @@ const Tournament = (props) => {
                         <tr style={{width:'100%'}} align={"center"}>
                             <td style={{width:'100%', display:'flex'}} align={"center"}>
                                 <Card size="m" style={{background: 'Green'}}>
-                                    <Title weight={"bold"} level={"2"} style={{textAlign : "center", paddingTop: 50}}>
-                                        Создать новый турнир
-                                    </Title>
-                                    <div style={{
-                                        height: 100,
-                                        width: 300
-                                    }}/>
+                                    <table style={{display:'flex',width : '100%', height: '100%',
+                                    }}>
+                                        <Avatar src={newTourCard} align={"Center"} mode={"app"}
+                                                style={{marginBottom : 50, height: 100, width: 300,
+                                                    overflow : "hidden", objectFit : "cover"}}>
+                                            <Title weight={"bold"} level={"3"} style={{textAlign : "center", paddingLeft: 30}}>
+                                                Создать новый турнир
+                                            </Title>
+                                        </Avatar>
+                                    </table>
                                 </Card>
                             </td>
                         </tr>
