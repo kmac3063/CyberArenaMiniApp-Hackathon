@@ -12,86 +12,55 @@ import FormLayout from "@vkontakte/vkui/dist/components/FormLayout/FormLayout";
 import Textarea from "@vkontakte/vkui/dist/components/Textarea/Textarea";
 import Icon24Done from '@vkontakte/icons/dist/24/done';
 import Icon24Cancel from '@vkontakte/icons/dist/24/cancel';
+import Icon24Add from '@vkontakte/icons/dist/24/add';
 import CardGrid from "@vkontakte/vkui/dist/components/CardGrid/CardGrid";
 import Card from "@vkontakte/vkui/dist/components/Card/Card";
 import GameCell from "../cards/GameCell";
 import PanelHeader from "@vkontakte/vkui/dist/components/PanelHeader/PanelHeader";
 import ServiceCell from "../cards/ServiceCell";
-import Icon24Add from '@vkontakte/icons/dist/24/add';
+import AddService from "../modals/AddService";
+import AddGame from "../modals/AddGame";
+import EditProfile from "../modals/EditProfile";
+import ChangeAvatar from "../modals/ChangeAvatar";
 
 const Profile = (props) => {
     const [activeModal, setActiveModal] = useState(null);
     let user = DataBase.getUserInfo(props.fetchedUser);
 
-    const saveProfile = () => {
-        console.log("save");
+    const closeModal = () => {
         setActiveModal(null);
     }
-    const saveGame = () => {
-        console.log("save");
-        setActiveModal(null);
+
+    const saveProfile = (text) => {
+        console.log(text);
+        closeModal();
     }
-    const saveService = () => {
-        console.log("save");
-        setActiveModal(null);
+    const saveGame = (text) => {
+        console.log(text);
+        closeModal();
+    }
+    const saveService = (text) => {
+        console.log(text);
+        closeModal();
+    }
+    const saveAvatar = (img) => {
+        closeModal();
     }
 
     return (<Group>
         <Title level="2" weight="semibold" style={{"textAlign" : "center"}} separator={false}>Основная информация</Title>
+
         <ModalRoot activeModal={activeModal}>
-            <ModalPage
-                id={"editProfile"}
-                onClose={() => {setActiveModal(null)}}
-                header={
-                    <ModalPageHeader
-                        left={<PanelHeaderButton onClick={() => {setActiveModal(null)}}><Icon24Cancel/></PanelHeaderButton>}
-                        right={<PanelHeaderButton onClick={saveProfile}><Icon24Done/></PanelHeaderButton>}
-                    >
-                        Редактирование
-                    </ModalPageHeader>
-                }
-            >
-                <FormLayout>
-                    <Textarea top="Новый никнейм" placeholder="Введите новый никнейм" />
-                </FormLayout>
-            </ModalPage>
-            <ModalPage
-                id={"addGame"}
-                onClose={() => {setActiveModal(null)}}
-                header={
-                    <ModalPageHeader
-                        left={<PanelHeaderButton onClick={() => {setActiveModal(null)}}><Icon24Cancel/></PanelHeaderButton>}
-                        right={<PanelHeaderButton onClick={saveGame}><Icon24Done/></PanelHeaderButton>}
-                    >
-                        Добавление игры
-                    </ModalPageHeader>
-                }
-            >
-                <FormLayout>
-                    <Textarea top="Новый игра" placeholder="Какую игру вы хотите добавить?" />
-                </FormLayout>
-            </ModalPage>
-            <ModalPage
-                id={"addService"}
-                onClose={() => {setActiveModal(null)}}
-                header={
-                    <ModalPageHeader
-                        left={<PanelHeaderButton onClick={() => {setActiveModal(null)}}><Icon24Cancel/></PanelHeaderButton>}
-                        right={<PanelHeaderButton onClick={saveService}><Icon24Done/></PanelHeaderButton>}
-                    >
-                        Добавление нового контакта
-                    </ModalPageHeader>
-                }
-            >
-                <FormLayout>
-                    <Textarea top="Новый контакт" placeholder="Введите ссылка на новый контакт" />
-                </FormLayout>
-            </ModalPage>
+            <EditProfile id="editProfile" out={closeModal} save={saveProfile} onClose={closeModal}/>
+            <AddGame id="addGame" out={closeModal} save={saveGame} onClose={closeModal}/>
+            <AddService id="addService" out={closeModal} save={saveService} onClose={closeModal}/>
+            <ChangeAvatar id="changeAvatar" out={closeModal} save={saveAvatar} onClose={closeModal}/>
         </ModalRoot>
+
         {props.fetchedUser && <RichCell style={{padding : "0px 5%"}}
             disabled
             multiline
-            before={<Avatar size={54} src={user.avatar}/>}
+            before={<Avatar size={54} src={user.avatar} onClick={() => setActiveModal("changeAvatar")}/>}
             text={props.fetchedUser.city.title}
             caption={props.fetchedUser.city.title}
             after={<Icon28WriteSquareOutline onClick={()=>{setActiveModal("editProfile")}}/>}>
