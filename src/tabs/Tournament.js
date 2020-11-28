@@ -7,12 +7,75 @@ import Avatar from "@vkontakte/vkui/dist/components/Avatar/Avatar";
 import RichCell from "@vkontakte/vkui/dist/components/RichCell/RichCell";
 import DataBase from "../server/DataBase"
 import Icon28WriteSquareOutline from '@vkontakte/icons/dist/28/write_square_outline';
+import PanelHeader from "@vkontakte/vkui/dist/components/PanelHeader/PanelHeader";
+import Icon28AddOutline from "@vkontakte/icons/dist/28/add_outline";
+import PanelHeaderButton from "@vkontakte/vkui/dist/components/PanelHeaderButton/PanelHeaderButton";
+import {Cell, Search} from "@vkontakte/vkui";
+import CellButton from "@vkontakte/vkui/dist/components/CellButton/CellButton";
+import Text from "@vkontakte/vkui/dist/components/Typography/Text/Text";
+import Header from "@vkontakte/vkui/dist/components/Header/Header";
+import Card from "@vkontakte/vkui/dist/components/Card/Card";
+import CardScroll from "@vkontakte/vkui/dist/components/CardScroll/CardScroll";
+import CardGrid from "@vkontakte/vkui/dist/components/CardGrid/CardGrid";
 
 const Tournament = (props) => {
-    let user = DataBase.getUserTournamentsInfo(props.fetchedUser);
-    return (<Group>
-            <div>Турнир</div>
-        </Group>)
+    let allTournamentsInfo = DataBase.getUserTournamentsInfo(props.fetchedUser);
+    return (
+        <Group>
+            <Group separator="hide">
+            <Search value={null} onChange={null} after={null}/>
+
+            </Group>
+            <Group separator="hide">
+                <Cell
+                    asideContent={<PanelHeaderButton onClick={() => {}}><Icon28AddOutline/></PanelHeaderButton>}
+                >
+                    Мои турниры
+                </Cell>
+                <CardScroll>
+                    <Card size="l" mode="outline" >
+                        <div style={{
+                            height: 120}} />
+                    </Card>
+                </CardScroll>
+            </Group>
+            <Group separator="hide">
+                <Cell>
+                    Турниры в которых я участвую
+                </Cell>
+                <CardScroll>
+                    <Card size="l" mode="outline" >
+                        <div style={{
+                            height: 120}} />
+                    </Card>
+                </CardScroll>
+            </Group>
+            <Group separator="hide">
+                <Cell>
+                    Рекомендуемые турниры
+                </Cell>
+                <CardGrid>
+                    <Card size="m" mode="outline" >
+                        <div style={{
+                            height: 120}} />
+                    </Card>
+                    <Card size="m" mode="outline" >
+                        <div style={{
+                            height: 120}} />
+                    </Card>
+                    <Card size="m" mode="outline" >
+                        <div style={{
+                            height: 120}} />
+                    </Card>
+                    <Card size="m" mode="outline" >
+                        <div style={{
+                            height: 120}} />
+                    </Card>
+                </CardGrid>
+            </Group>
+        </Group>
+
+    )
 }
 
 export default Tournament;
