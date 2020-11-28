@@ -34,16 +34,14 @@ const CreateTournament = (props) => {
                 left={<PanelHeaderButton onClick={props.out}><Icon24Cancel /></PanelHeaderButton>}
                 right={<PanelHeaderButton onClick={() => props.create(buildTour())}> <Icon24Done /></PanelHeaderButton>}
             >
-                Фильтры
+                Создание турнира
             </ModalPageHeader>
         }
     >
         <FormLayout>
-            {/*<FormLayoutGroup>*/}
-            {/*    <Button mode="secondary" onClick={() => this.setActiveModal(MODAL_PAGE_COUNTRIES)} size="xl">Выбор страны</Button>*/}
-            {/*    <Button mode="secondary" onClick={() => this.setActiveModal(MODAL_PAGE_STORY_FEEDBACK)} size="xl">Просмотры истории</Button>*/}
-            {/*    <Button mode="secondary" onClick={() => this.setActiveModal(MODAL_PAGE_USER_INFO)} size="xl">Информация о пользователе</Button>*/}
-            {/*</FormLayoutGroup>*/}
+            <FormLayoutGroup>
+                <Input type="text" align="center" placeholder="Введите название турнира"/>
+            </FormLayoutGroup>
 
             <SelectMimicry top="Страна" placeholder="Выбрать страну" onClick={() => {}} />
             <SelectMimicry top="Город" placeholder="Выбрать город" disabled />
