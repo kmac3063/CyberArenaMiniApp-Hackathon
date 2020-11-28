@@ -10,6 +10,7 @@ import Group from "@vkontakte/vkui/dist/components/Group/Group";
 import defHS from "../img/defaultHS.png";
 import Card from "@vkontakte/vkui/dist/components/Card/Card";
 
+
 const publicCard = (props) => {
 
     return (

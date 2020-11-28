@@ -12,6 +12,7 @@ import React from "react";
 
 const OtherToursCell = (props) => {
 
+
     return (
         <Card size="m" mode="shadow" >
             <div style={{

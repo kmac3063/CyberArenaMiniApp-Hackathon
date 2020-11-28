@@ -10,6 +10,8 @@ import a3 from '../img/avatars/3.png'
 import a4 from '../img/avatars/4.png'
 import a5 from '../img/avatars/5.png'
 import a6 from '../img/avatars/6.png'
+import dota from "../img/r_dota_tur.png";
+import doom from "../img/r_pal_tur.png";
 
 // если не получили, то создать
 class DataBase {
@@ -42,26 +44,14 @@ class DataBase {
         props.createdTournaments = [];
         let tournament1 = {
             "Name": "Первый турнир по Hearthstone",
-            "StartData": "28.01.2020 г.",
-            "StartTime": "15:30",
-            "EndData": null,
-            "EndTime": null,
             "GameType": "Hearthstone",
-            "Prize": null,
-            "EnterPrice": null,
             "TournamentImg": defHS,
             "PrivateType": "private"
         }
 
         let tournament2 = {
             "Name": "Второй турнир по Hearthstone",
-            "StartData": "29.01.2020 г.",
-            "StartTime": "16:30",
-            "EndData": "30.01.2020 г.",
-            "EndTime": null,
             "GameType": "Hearthstone",
-            "Prize": 150000,
-            "EnterPrice": null,
             "TournamentImg": defHS,
             "PrivateType": "public"
         }
