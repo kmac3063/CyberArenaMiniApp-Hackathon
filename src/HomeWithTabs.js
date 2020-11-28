@@ -33,7 +33,7 @@ const HomeWithTabs = (props) => {
 
             <Panel id={"panel1"}>
                 <PanelHeader>
-                    Профиль
+                    КиберАрена
                 </PanelHeader>
                 <Tabs>
                     <TabsItem

@@ -1,14 +1,11 @@
 import React, {useState} from 'react';
-import Panel from "@vkontakte/vkui/dist/components/Panel/Panel";
 import Group from "@vkontakte/vkui/dist/components/Group/Group";
 import Title from "@vkontakte/vkui/dist/components/Typography/Title/Title";
-import Button from "@vkontakte/vkui/dist/components/Button/Button";
 import Avatar from "@vkontakte/vkui/dist/components/Avatar/Avatar";
 import RichCell from "@vkontakte/vkui/dist/components/RichCell/RichCell";
 import DataBase from "../server/DataBase"
 import Icon28WriteSquareOutline from '@vkontakte/icons/dist/28/write_square_outline';
-import EditProfile from "../modals/EditProfile";
-import {IS_PLATFORM_ANDROID, IS_PLATFORM_IOS, ModalPage, ModalRoot} from "@vkontakte/vkui";
+import {ModalPage, ModalRoot} from "@vkontakte/vkui";
 import ModalPageHeader from "@vkontakte/vkui/dist/components/ModalPageHeader/ModalPageHeader";
 import PanelHeaderButton from "@vkontakte/vkui/dist/components/PanelHeaderButton/PanelHeaderButton";
 import FormLayout from "@vkontakte/vkui/dist/components/FormLayout/FormLayout";
@@ -17,6 +14,7 @@ import Icon24Done from '@vkontakte/icons/dist/24/done';
 import Icon24Cancel from '@vkontakte/icons/dist/24/cancel';
 import CardGrid from "@vkontakte/vkui/dist/components/CardGrid/CardGrid";
 import Card from "@vkontakte/vkui/dist/components/Card/Card";
+import GameCell from "../cards/GameCell";
 
 const Profile = (props) => {
     const [activeModal, setActiveModal] = useState(null);
@@ -26,25 +24,17 @@ const Profile = (props) => {
         console.log("save");
         setActiveModal(null);
     }
+
     return (<Group>
         <Title level="2" weight="semibold" style={{"textAlign" : "center"}}>Основная информация</Title>
-        {props.fetchedUser && <RichCell
-            disabled
-            multiline
-            before={<Avatar size={72} src={user.avatar} />}
-            text={props.fetchedUser.city.title}
-           //caption={props.fetchedUser.city.title}
-            after={<Icon28WriteSquareOutline onClick={()=>{setActiveModal("editProfile")}}/>}>
-                    {user.nickname}
-                </RichCell>}
         <ModalRoot activeModal={activeModal}>
             <ModalPage
                 id={"editProfile"}
-                onClose={() => setActiveModal(null)}
+                onClose={() => {setActiveModal(null)}}
                 header={
                     <ModalPageHeader
-                        left={IS_PLATFORM_ANDROID && <PanelHeaderButton onClick={save}><Icon24Cancel /></PanelHeaderButton>}
-                        right={<PanelHeaderButton onClick={save}>{IS_PLATFORM_IOS ? 'Готово' : <Icon24Done />}</PanelHeaderButton>}
+                        left={<PanelHeaderButton onClick={() => {setActiveModal(null)}}><Icon24Cancel/></PanelHeaderButton>}
+                        right={<PanelHeaderButton onClick={save}><Icon24Done/></PanelHeaderButton>}
                     >
                         Редактирование
                     </ModalPageHeader>
@@ -55,14 +45,31 @@ const Profile = (props) => {
                 </FormLayout>
             </ModalPage>
         </ModalRoot>
-        <CardGrid>
+        {props.fetchedUser && <RichCell
+            disabled
+            multiline
+            before={<Avatar size={72} src={user.avatar} />}
+            text={props.fetchedUser.city.title}
+           //caption={props.fetchedUser.city.title}
+            after={<Icon28WriteSquareOutline onClick={()=>{setActiveModal("editProfile")}}/>}>
+                    {user.nickname}
+                </RichCell>}
+
+        <CardGrid style={{"position" : "relative", "zIndex" : "0"}}>
             <Card size="l" mode="shadow">
-                <div style={{ height: 96 }} />
+                <div style={{ height: 130, backgroundColor : "", padding : 10}}>
+                    asdasdsa
+                </div>
             </Card>
-        </CardGrid>
-        <CardGrid>
-            <Card size="l" mode="shadow">
-                <div style={{ height: 96 }} />
+            <Card size="l" mode="shadow" style={{marginTop : 20}}>
+                <div style={{ height: 130, backgroundColor : "", padding : 10, "overflowY" : "auto"}}>
+                    <Group>
+                        {user.games.map(gameName => {
+                                return <GameCell title ={gameName} img={DataBase.getGameAvatar(gameName)}/>
+                            })
+                        }
+                    </Group>
+                </div>
             </Card>
         </CardGrid>
     </Group>)
