@@ -35,7 +35,7 @@ const Tournament = (props) => {
                     Мои турниры
                 </Cell>
                 <CardScroll>
-                    {allTournamentsInfo.createdTournaments.map(tour => {
+                    {allTournamentsInfo.createdTournaments.map((tour) => {
                         return <UserToursCell title={tour}/>
                     })}
                 </CardScroll>
@@ -45,8 +45,8 @@ const Tournament = (props) => {
                     Турниры в которых я участвую
                 </Cell>
                 <CardScroll>
-                    {allTournamentsInfo.myTournaments.map(tour => {
-                        return <UserToursCell props={tour}/>
+                    {allTournamentsInfo.myTournaments.map((tour) => {
+                        return <UserToursCell title = {tour}/>
                     })}
                 </CardScroll>
             </Group>

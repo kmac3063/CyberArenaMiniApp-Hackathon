@@ -109,8 +109,7 @@ const Profile = (props) => {
                         <Group>
                             {user.games.map(gameName => {
                                 return <GameCell title = {gameName} img={DataBase.getGameAvatar(gameName)}/>
-                            })
-                            }
+                            })}
                         </Group>
                     </div>
                 </div>

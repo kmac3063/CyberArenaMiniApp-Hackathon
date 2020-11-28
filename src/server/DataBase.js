@@ -59,7 +59,8 @@ class DataBase {
             "TournamentImg": defHS,
             "PrivateType": "public"
         }
-        props.myTournaments.push(tournament1, tournament2);
+        props.myTournaments.push(tournament1);
+        props.myTournaments.push(tournament2);
         props.createdTournaments.push(tournament1);
         props.recomendedTournaments = [];
         return props;
