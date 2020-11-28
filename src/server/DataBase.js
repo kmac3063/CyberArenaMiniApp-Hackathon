@@ -41,7 +41,7 @@ class DataBase {
         props.myTournaments = [];
         props.createdTournaments = [];
         let tournament1 = {
-            "Name": "Первый турниро по хс",
+            "Name": "Первый турнир по Hearthstone",
             "StartData": "28.01.2020 г.",
             "StartTime": "15:30",
             "EndData": null,
@@ -54,7 +54,7 @@ class DataBase {
         }
 
         let tournament2 = {
-            "Name": "Второй турниро по хс",
+            "Name": "Второй турнир по Hearthstone",
             "StartData": "29.01.2020 г.",
             "StartTime": "16:30",
             "EndData": "30.01.2020 г.",
