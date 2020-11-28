@@ -27,11 +27,11 @@ const Tournament = (props) => {
             <ModalRoot activeModal={activeModal}>
                 <CreateTournament id="createTournament" out={closeModal} create={createTournament} onClose={closeModal}/>
             </ModalRoot>
-            <Group separator="hide">
+            <Group separator="hide" style={{ position: 'relative', zIndex: 0 }}>
             <Search value={null} onChange={null} after={null}/>
 
             </Group>
-            <Group separator="hide">
+            <Group separator="hide" style={{ position: 'relative', zIndex: 0 }}>
                 <Cell
                     asideContent={<PanelHeaderButton onClick={() => {}}>
                         <Icon28AddOutline onClick={() => setActiveModal("createTournament")}/>
@@ -39,13 +39,13 @@ const Tournament = (props) => {
                 >
                     Мои турниры
                 </Cell>
-                <CardScroll>
+                <CardScroll >
                     {allTournamentsInfo.createdTournaments.map((tour) => {
                         return <UserToursCell title={tour} />
                     })}
                 </CardScroll>
             </Group>
-            <Group separator="hide">
+            <Group separator="hide" style={{ position: 'relative', zIndex: 0 }}>
                 <Cell>
                     Турниры в которых я участвую
                 </Cell>
