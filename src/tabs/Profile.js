@@ -23,7 +23,15 @@ const Profile = (props) => {
     const [activeModal, setActiveModal] = useState(null);
     let user = DataBase.getUserInfo(props.fetchedUser);
 
-    const save = () => {
+    const saveProfile = () => {
+        console.log("save");
+        setActiveModal(null);
+    }
+    const saveGame = () => {
+        console.log("save");
+        setActiveModal(null);
+    }
+    const saveService = () => {
         console.log("save");
         setActiveModal(null);
     }
@@ -37,7 +45,7 @@ const Profile = (props) => {
                 header={
                     <ModalPageHeader
                         left={<PanelHeaderButton onClick={() => {setActiveModal(null)}}><Icon24Cancel/></PanelHeaderButton>}
-                        right={<PanelHeaderButton onClick={save}><Icon24Done/></PanelHeaderButton>}
+                        right={<PanelHeaderButton onClick={saveProfile}><Icon24Done/></PanelHeaderButton>}
                     >
                         Редактирование
                     </ModalPageHeader>
@@ -45,6 +53,38 @@ const Profile = (props) => {
             >
                 <FormLayout>
                     <Textarea top="Новый никнейм" placeholder="Введите новый никнейм" />
+                </FormLayout>
+            </ModalPage>
+            <ModalPage
+                id={"addGame"}
+                onClose={() => {setActiveModal(null)}}
+                header={
+                    <ModalPageHeader
+                        left={<PanelHeaderButton onClick={() => {setActiveModal(null)}}><Icon24Cancel/></PanelHeaderButton>}
+                        right={<PanelHeaderButton onClick={saveGame}><Icon24Done/></PanelHeaderButton>}
+                    >
+                        Добавление игры
+                    </ModalPageHeader>
+                }
+            >
+                <FormLayout>
+                    <Textarea top="Новый игра" placeholder="Какую игру вы хотите добавить?" />
+                </FormLayout>
+            </ModalPage>
+            <ModalPage
+                id={"addService"}
+                onClose={() => {setActiveModal(null)}}
+                header={
+                    <ModalPageHeader
+                        left={<PanelHeaderButton onClick={() => {setActiveModal(null)}}><Icon24Cancel/></PanelHeaderButton>}
+                        right={<PanelHeaderButton onClick={saveService}><Icon24Done/></PanelHeaderButton>}
+                    >
+                        Добавление нового контакта
+                    </ModalPageHeader>
+                }
+            >
+                <FormLayout>
+                    <Textarea top="Новый контакт" placeholder="Введите ссылка на новый контакт" />
                 </FormLayout>
             </ModalPage>
         </ModalRoot>
@@ -59,11 +99,12 @@ const Profile = (props) => {
                 </RichCell>}
 
         <CardGrid style={{"position" : "relative", "zIndex" : "0"}}>
-            <Card size="l" mode="shadow" style={{marginTop : 20}}>
-                <SimpleCell after={<PanelHeaderButton><Icon24Add/></PanelHeaderButton>}>
+            <Card size="l" mode="shadow" style={{marginTop : 25}}>
+                <SimpleCell after={<PanelHeaderButton onClick={() => setActiveModal("addGame")}>
+                    <Icon24Add/>
+                </PanelHeaderButton>}>
                     Игры</SimpleCell>
                 <div>
-
                     <div style={{ height: 110, backgroundColor : "", "overflowY" : "auto"}}>
                         <Group>
                             {user.games.map(gameName => {
@@ -75,8 +116,10 @@ const Profile = (props) => {
                 </div>
             </Card>
 
-            <Card size="l" mode="shadow" style={{marginTop : 15}}>
-                <SimpleCell after={<PanelHeaderButton><Icon24Add/></PanelHeaderButton>}>Ссылки</SimpleCell>
+            <Card size="l" mode="shadow" style={{marginTop : 30}}>
+                <SimpleCell after={<PanelHeaderButton onClick={() => setActiveModal("addService")}>
+                    <Icon24Add/>
+                </PanelHeaderButton>}>Ссылки</SimpleCell>
                 <div style={{ height: 110, backgroundColor : "", "overflowY" : "auto"}}>
                     <Group>
                         {user.services.map(serviceName => {
