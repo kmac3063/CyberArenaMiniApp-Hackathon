@@ -91,7 +91,6 @@ const App = () => {
 		// 	<Home id='home' fetchedUser={fetchedUser} go={go} />
 		// 	<Persik id='persik' go={go} />
 		// </View>
-
 	);
 }
 
