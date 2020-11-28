@@ -67,7 +67,7 @@ class DataBase {
         }
         props.myTournaments.push(tournament1);
         props.myTournaments.push(tournament2);
-        props.createdTournaments.push(tournament1);
+        //props.createdTournaments.push(tournament1);
         props.recomendedTournaments = [];
         return props;
     }

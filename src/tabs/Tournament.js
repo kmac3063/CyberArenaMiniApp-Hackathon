@@ -34,11 +34,29 @@ const Tournament = (props) => {
                 >
                     Мои турниры
                 </Cell>
-                <CardScroll>
-                    {allTournamentsInfo.createdTournaments.map((tour) => {
-                        return <UserToursCell title={tour}/>
-                    })}
-                </CardScroll>
+                {(allTournamentsInfo.createdTournaments.length == 0) ?
+                    <table style={{width:'100%'}} align={"center"}>
+                        <tr style={{width:'100%'}} align={"center"}>
+                            <td style={{width:'100%', display:'flex'}} align={"center"}>
+                                <Card size="m" style={{background: 'Green'}}>
+                                    <Title weight={"bold"} level={"2"} style={{textAlign : "center", paddingTop: 50}}>
+                                        Создать новый турнир
+                                    </Title>
+                                    <div style={{
+                                        height: 100,
+                                        width: 300
+                                    }}/>
+                                </Card>
+                            </td>
+                        </tr>
+                    </table>
+                :
+                    <CardScroll>
+                        {allTournamentsInfo.createdTournaments.map((tour) => {
+                            return <UserToursCell title={tour}/>
+                        })}
+                    </CardScroll>}
+
             </Group>
             <Group separator="hide">
                 <Cell>
