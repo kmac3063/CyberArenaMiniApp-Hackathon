@@ -51,7 +51,7 @@ import '@vkontakte/vkui/dist/vkui.css';
 import Root from "@vkontakte/vkui/dist/components/Root/Root";
 
 import HomeWithTabs from "./HomeWithTabs";
-import CreateTournament from './CreateTournament';
+import CreateTournament from './modals/CreateTournament';
 
 const App = () => {
 	const [activeView, setActiveView] = useState('home');

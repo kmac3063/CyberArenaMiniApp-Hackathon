@@ -4,6 +4,12 @@ import steamImg from '../img/steam.png';
 import defHS from '../img/defaultHS.png';
 import vkImg from '../img/vk.png';
 import React from 'react';
+import a1 from '../img/avatars/1.png'
+import a2 from '../img/avatars/2.png'
+import a3 from '../img/avatars/3.png'
+import a4 from '../img/avatars/4.png'
+import a5 from '../img/avatars/5.png'
+import a6 from '../img/avatars/6.png'
 
 // если не получили, то создать
 class DataBase {
@@ -63,6 +69,10 @@ class DataBase {
         props.createdTournaments.push(tournament1);
         props.recomendedTournaments = [];
         return props;
+    }
+
+    static getAvatars() {
+        return [a1, a2, a3, a4, a5, a6];
     }
 }
 
