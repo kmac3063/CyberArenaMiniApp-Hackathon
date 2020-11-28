@@ -72,6 +72,30 @@ class DataBase {
         return props;
     }
 
+    static getTavernInfo(fetchUser){
+        //запрос к бд
+        let props = {};
+        props.publics =[];
+        props.hommies = [];
+
+        let public1 = {
+            "publicAv": dotaImg,
+            "name": "DOTA 2",
+            "population": "2.5 млн",
+            "publicImg": null
+        };
+
+        let public2 = {
+            "publicAv": steamImg,
+            "name": "DOOM....",
+            "population": "200 тыс.",
+            "publicImg": null
+        };
+        props.publics.push(public1, public2, public1);
+
+        return props;
+    }
+
     static getAvatars() {
         return [a1, a2, a3, a4, a5, a6];
     }
