@@ -22,6 +22,8 @@ import newTourCard from '../img/newTourCard.png';
 import UserToursCell from "../cards/UserToursCell";
 import CreateTournament from "../modals/CreateTournament";
 import ModalRoot from "@vkontakte/vkui/dist/components/ModalRoot/ModalRoot";
+import Banner from "@vkontakte/vkui/dist/components/Banner/Banner";
+import OtherToursCell from "../cards/OtherToursCell";
 
 const Tournament = (props) => {
     const [activeModal, setActiveModal] = useState(null);
@@ -50,25 +52,25 @@ const Tournament = (props) => {
                     Мои турниры
                 </Cell>
                 {(allTournamentsInfo.createdTournaments.length == 0) ?
-                    <table style={{width:'100%'}} align={"center"}>
-                        <tr style={{width:'100%'}} align={"center"}>
-                            <td style={{width:'100%', display:'flex'}} align={"center"}>
-                                <Card size="m" style={{background: 'Green'}}>
-                                    <table style={{display:'flex',width : '100%', height: '100%',
-                                    }}>
-                                        <Avatar src={newTourCard} align={"Center"} mode={"app"}
-                                                style={{marginBottom : 50, height: 100, width: 300,
-                                                    overflow : "hidden", objectFit : "cover"}}>
-                                            <Title weight={"bold"} level={"3"} style={{textAlign : "center", paddingLeft: 30}}>
-                                                Создать новый турнир
-                                            </Title>
-                                        </Avatar>
-                                        <div style={{height: 100, width: 300}}/>
-                                    </table>
-                                </Card>
-                            </td>
-                        </tr>
-                    </table>
+                    <Group >
+                        <Banner
+                            mode="image"
+                            header="У вас ещё нету созданных турниров"
+                            subheader="Создать?"
+                            background={
+                                <div
+                                    style={{
+                                        backgroundColor: '#65c063',
+                                        backgroundImage: newTourCard,
+                                        backgroundPosition: 'right bottom',
+                                        backgroundSize: 320,
+                                        backgroundRepeat: 'no-repeat',
+                                    }}
+                                />
+                            }
+                            actions={<Button mode="overlay_primary">Создать новый турнир</Button>}
+                        />
+                    </Group>
                 :
                     <CardScroll>
                         {allTournamentsInfo.createdTournaments.map((tour) => {
@@ -91,23 +93,9 @@ const Tournament = (props) => {
                     Рекомендуемые турниры
                 </Cell>
                 <CardGrid>
-                    <Card size="m" >
-                        <div style={{
-                            height: 120}}>
-                        </div>
-                    </Card>
-                    <Card size="m">
-                        <div style={{
-                            height: 120}} />
-                    </Card>
-                    <Card size="m">
-                        <div style={{
-                            height: 120}} />
-                    </Card>
-                    <Card size="m">
-                        <div style={{
-                            height: 120}}/>
-                    </Card>
+                    {allTournamentsInfo.recomendedTournaments.map((tour) => {
+                        return <OtherToursCell title = {tour}/>
+                    })}
                 </CardGrid>
             </Group>
         </Group>

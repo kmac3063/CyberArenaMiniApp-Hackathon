@@ -43,22 +43,37 @@ class DataBase {
         props.myTournaments = [];
         props.createdTournaments = [];
         let tournament1 = {
-            "Name": "Первый турнир по Hearthstone",
+            "Name": "Мой первый турнир по Hearthstone",
             "GameType": "Hearthstone",
-            "TournamentImg": defHS,
-            "PrivateType": "private"
+            "PrivateType": "private",
+            "imgUrl": "https://mmo-help.ru/wp-content/uploads/2017/06/Hearthstone_Heroes_of_Warcraft_China.png"
         }
 
         let tournament2 = {
-            "Name": "Второй турнир по Hearthstone",
-            "GameType": "Hearthstone",
-            "TournamentImg": defHS,
-            "PrivateType": "public"
+            "Name": "1/4 финала школьного турнира по Dota",
+            "GameType": "Dota 2",
+            "PrivateType": "public",
+            "imgUrl": "https://yt3.ggpht.com/a/AATXAJxTUVE3bO2GftTROx0YCE99kM2Adtr9SkwU47fG=s900-c-k-c0x00ffffff-no-rj"
         }
-        props.myTournaments.push(tournament1);
-        props.myTournaments.push(tournament2);
-        //props.createdTournaments.push(tournament1);
+
+        let tournament3 = {
+            "Name": "Zotac sunday cup 1x1",
+            "GameType": "Starcraft 2",
+            "PrivateType": "public",
+            "imgUrl": "https://telegrator.ru/wp-content/uploads/2020/07/chat_avatar-49.jpg"
+        }
+
+        let tournament4 = {
+            "Name": "Групповой этап чемпионата России среди студентов",
+            "GameType": "CS:GO",
+            "PrivateType": "public",
+            "imgUrl": "https://yt3.ggpht.com/a/AATXAJxeDvSjsIJHDtOzLYWftko-CFyNv73g294JpzLmEw=s900-c-k-c0xffffffff-no-rj-mo"
+        }
+        props.myTournaments.push(tournament4);
         props.recomendedTournaments = [];
+        props.recomendedTournaments.push(tournament3);
+        props.recomendedTournaments.push(tournament1);
+        props.recomendedTournaments.push(tournament2);
         return props;
     }
 
