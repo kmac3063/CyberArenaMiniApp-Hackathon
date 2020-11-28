@@ -3,7 +3,8 @@ import Group from "@vkontakte/vkui/dist/components/Group/Group";
 
 const PlayerTourView = (props) => {
 
-    return <Group>a</Group>
+    return <Group>
+    </Group>
 }
 
 export default PlayerTourView
