@@ -13,11 +13,11 @@
   "author": "",
   "license": "MIT",
   "devDependencies": {
+    "@vkontakte/icons": "^1.59.0",
+    "@vkontakte/vkui": "^3.13.2",
     "cross-env": "^5.2.0",
     "react-hot-loader": "^4.9.0",
-    "react-scripts": "^3.4.1",
-    "@vkontakte/icons": "^1.59.0",
-    "@vkontakte/vkui": "^3.13.2"
+    "react-scripts": "^3.4.4"
   },
   "peerDependencies": {
     "@vkontakte/icons": "^1.59.0",
