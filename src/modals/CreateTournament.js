@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import ModalPageHeader from "@vkontakte/vkui/dist/components/ModalPageHeader/ModalPageHeader";
 import PanelHeaderButton from "@vkontakte/vkui/dist/components/PanelHeaderButton/PanelHeaderButton";
 import FormLayout from "@vkontakte/vkui/dist/components/FormLayout/FormLayout";
-import {ModalPage} from "@vkontakte/vkui";
+import {Button, ModalPage, Select, Textarea} from "@vkontakte/vkui";
 import FormLayoutGroup from "@vkontakte/vkui/dist/components/FormLayoutGroup/FormLayoutGroup";
 import SelectMimicry from "@vkontakte/vkui/dist/components/SelectMimicry/SelectMimicry";
 import Radio from "@vkontakte/vkui/dist/components/Radio/Radio";
@@ -10,6 +10,7 @@ import Input from "@vkontakte/vkui/dist/components/Input/Input";
 import Icon24Done from '@vkontakte/icons/dist/24/done';
 import Icon24Cancel from '@vkontakte/icons/dist/24/cancel';
 import Checkbox from "@vkontakte/vkui/dist/components/Checkbox/Checkbox";
+import DataBase from "../server/DataBase";
 
 const CreateTournament = (props) => {
     const [tourName, setTourName] = useState("Example");
@@ -27,6 +28,7 @@ const CreateTournament = (props) => {
 
     }
 
+    let games = DataBase.getGameList();
     return <ModalPage
         id={"createTournament"}
         header={
@@ -39,37 +41,65 @@ const CreateTournament = (props) => {
         }
     >
         <FormLayout>
-            <FormLayoutGroup>
-                <Input type="text" align="center" placeholder="Введите название турнира"/>
+            <FormLayoutGroup top="Название турнира">
+                <Input type="text"/>
+            </FormLayoutGroup>
+            <FormLayoutGroup top="Игра">
+                {/*<Select type="text">*/}
+                {/*    {games.map((gameName) => {*/}
+                {/*        return <option value ={gameName}>{gameName}</option>*/}
+                {/*    })}*/}
+                {/*</Select>*/}
+                <Input type={"text"}/>
+            </FormLayoutGroup>
+            <FormLayout top="Описание турнира">
+                <Textarea/>
+            </FormLayout>
+            <FormLayoutGroup top="Дата начала">
+                <Input placeholder="Число" type="number"/>
+                <Input placeholder="Месяц" type="number"/>
+                <Input placeholder="Год" type="number"/>
+            </FormLayoutGroup>
+            <FormLayoutGroup top="Дата конца">
+                <Input placeholder="Число" type="number"/>
+                <Input placeholder="Месяц" type="number"/>
+                <Input placeholder="Год" type="number"/>
             </FormLayoutGroup>
 
-            <SelectMimicry top="Страна" placeholder="Выбрать страну" onClick={() => {}} />
-            <SelectMimicry top="Город" placeholder="Выбрать город" disabled />
 
-            <FormLayoutGroup top="Пол">
-                <Radio name="sex" value={0} defaultChecked>Любой</Radio>
-                <Radio name="sex" value={1}>Мужской</Radio>
-                <Radio name="sex" value={2}>Женский</Radio>
+            <FormLayoutGroup top="Тип мероприятия"  bottom="В закрытое мероприятия можно попасть только по ссылке.">
+                <Select type="text">
+                    <option>Открытое</option>
+                    <option>Закрытое</option>
+                </Select>
             </FormLayoutGroup>
 
-            <SelectMimicry top="Школа" placeholder="Выбрать школу" disabled />
-            <SelectMimicry top="Университет" placeholder="Выбрать университет" disabled />
+            <FormLayout top={"По количеству людей"}>
+                <div>
+                    <Radio name="radio" defaultChecked>Одиночное</Radio>
+                    <Radio  name="radio" disabled>Командое</Radio>
+                </div>
+            </FormLayout>
 
-            <FormLayoutGroup top="Дополнительно">
-                <Checkbox>С фотографией</Checkbox>
-                <Checkbox>Сейчас на сайте</Checkbox>
+            <FormLayoutGroup top="Турнирная сетка">
+                <Select type="text" placeholder="Выберите турнирную сетку">
+                    <option>Single-elimination</option>
+
+                </Select>
             </FormLayoutGroup>
 
-            <FormLayoutGroup top="Работа">
-                <Input placeholder="Место работы" />
-                <Input placeholder="Должность" />
+            <FormLayoutGroup top="Максимальное количество участников">
+                <Input type={"number"}/>
             </FormLayoutGroup>
 
-            <FormLayoutGroup top="Дата рождения">
-                <SelectMimicry placeholder="День рождения" disabled />
-                <SelectMimicry placeholder="Месяц рождения" disabled />
-                <SelectMimicry placeholder="Год рождения" disabled />
+            <FormLayoutGroup top="">
             </FormLayoutGroup>
+            <FormLayoutGroup top="Правила турнира" bottom={"Тут вы можете указать специфические ограничения."}>
+                <Textarea/>
+            </FormLayoutGroup>
+
+
+
         </FormLayout>
     </ModalPage>
 }

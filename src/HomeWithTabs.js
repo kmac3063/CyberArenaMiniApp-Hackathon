@@ -12,6 +12,8 @@ import Tournament from "./tabs/Tournament";
 import PanelHeaderButton from "@vkontakte/vkui/dist/components/PanelHeaderButton/PanelHeaderButton";
 import {IOS} from "@vkontakte/vkui";
 import PanelHeader from "@vkontakte/vkui/dist/components/PanelHeader/PanelHeader";
+import PlayerTourView from "./PlayerTourView";
+import OrgTourView from "./OrgTourView";
 
 const HomeWithTabs = (props) => {
     const [activePanel, setActivePanel] = useState('panel1');
@@ -29,8 +31,11 @@ const HomeWithTabs = (props) => {
         return null;
     }
 
-    return (<View activePanel={activePanel}>
+    const changePanel = (name) => {
+        setActivePanel(name);
+    }
 
+    return (<View activePanel={activePanel}>
             <Panel id={"panel1"}>
                 <PanelHeader>
                     КиберАрена
@@ -56,6 +61,12 @@ const HomeWithTabs = (props) => {
                     </TabsItem>
                 </Tabs>
                 {showTab()}
+            </Panel>
+            <Panel id={"playerTourView"}>
+                <PlayerTourView changePanel={changePanel}/>
+            </Panel>
+            <Panel id={"OrgTourView"}>
+                <OrgTourView changePanel={changePanel}/>
             </Panel>
         </View>);
 }

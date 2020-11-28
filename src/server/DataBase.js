@@ -89,6 +89,12 @@ class DataBase {
     static getAvatars() {
         return [a1, a2, a3, a4, a5, a6];
     }
+
+    static getGameList() {
+        return ["Dota 2", "League of Legends", "Hearthstone",
+            "Counter-Strike Global Offensive", "Counter-Strike 1.6",
+        "Overwatch", "Fortnite", "Fifa"];
+    }
 }
 
 export default DataBase
