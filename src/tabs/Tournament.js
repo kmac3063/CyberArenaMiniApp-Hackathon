@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Panel from "@vkontakte/vkui/dist/components/Panel/Panel";
 import Group from "@vkontakte/vkui/dist/components/Group/Group";
 import Title from "@vkontakte/vkui/dist/components/Typography/Title/Title";
@@ -19,18 +19,32 @@ import CardScroll from "@vkontakte/vkui/dist/components/CardScroll/CardScroll";
 import CardGrid from "@vkontakte/vkui/dist/components/CardGrid/CardGrid";
 import defHS from '../img/defaultHS.png';
 import UserToursCell from "../cards/UserToursCell";
+import CreateTournament from "../modals/CreateTournament";
+import ModalRoot from "@vkontakte/vkui/dist/components/ModalRoot/ModalRoot";
 
 const Tournament = (props) => {
+    const [activeModal, setActiveModal] = useState(null);
     let allTournamentsInfo = DataBase.getUserTournamentsInfo(props.fetchedUser);
+
+    const closeModal = () => setActiveModal(null);
+    const createTournament = (tour) => {
+        closeModal();
+    }
     return (
         <Group>
+            <ModalRoot activeModal={activeModal}>
+                <CreateTournament id="createTournament" out={closeModal}
+                                  create={createTournament} onClose={closeModal}/>
+            </ModalRoot>
             <Group separator="hide">
             <Search value={null} onChange={null} after={null}/>
 
             </Group>
-            <Group separator="hide">
+            <Group separator="hide" style={{ position: 'relative', zIndex: 0 }}>
                 <Cell
-                    asideContent={<PanelHeaderButton onClick={() => {}}><Icon28AddOutline/></PanelHeaderButton>}
+                    asideContent={<PanelHeaderButton onClick={() => {setActiveModal("createTournament")}}>
+                        <Icon28AddOutline/>
+                    </PanelHeaderButton>}
                 >
                     Мои турниры
                 </Cell>
@@ -58,7 +72,7 @@ const Tournament = (props) => {
                     </CardScroll>}
 
             </Group>
-            <Group separator="hide">
+            <Group separator="hide" style={{ position: 'relative', zIndex: 0 }}>
                 <Cell>
                     Турниры в которых я участвую
                 </Cell>
@@ -68,7 +82,7 @@ const Tournament = (props) => {
                     })}
                 </CardScroll>
             </Group>
-            <Group separator="hide">
+            <Group separator="hide" style={{ position: 'relative', zIndex: 0 }}>
                 <Cell>
                     Рекомендуемые турниры
                 </Cell>
