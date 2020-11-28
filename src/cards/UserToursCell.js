@@ -29,14 +29,16 @@ const UserToursCell = (props) => {
                             color: 'Green',
                             textAlign: 'center'
                         }} >
-                            Начало: {props.title["StartData"]} {props.title["StartTime"]}
+                            {(props.title["StartData"] != null) ? 'Начало: '+props.title["StartData"] : ''}
+                            {(props.title["StartTime"] != null) ? ' ' + props.title["StartTime"] : ''}
                         </td>
                         <td style={{
                             width: '50%',
                             color: 'Red',
                             textAlign: 'center'
                         }}>
-                            Окончание: {props.title["EndData"]} {props.title["EndTime"]}
+                            {(props.title["EndData"] != null) ? 'Окончание: ' + props.title["EndData"] : ''}
+                            {(props.title["EndData"] != null) ? ' ' + props.title["EndTime"] : ''}
                         </td>
                     </tr>
                 </table>
@@ -57,13 +59,13 @@ const UserToursCell = (props) => {
                             width: '50%',
                             textAlign: 'center'
                         }} >
-                            Призовой фонд: {props.title["Prize"]}
+                            {(props.title["Prize"] != null) ? 'Призовой фонд: ' + props.title["Prize"] : ''}
                         </td>
                         <td style={{
                             width: '50%',
                             textAlign: 'center'
                         }}>
-                            {(props.title["EnterPrice"] != null) ? 'Вход: {props.title["EnterPrice"]}' : ''}
+                            {(props.title["EnterPrice"] != null) ? 'Вход: ' + props.title["EnterPrice"] : ''}
                         </td>
                     </tr>
                 </table>
