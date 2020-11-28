@@ -19,20 +19,19 @@ const HomeWithTabs = (props) => {
     const [activePanel, setActivePanel] = useState('panel1');
     const [activeTab, setActiveTab] = useState('tournamentTab');
 
+    const changePanel = (name) => {
+        setActivePanel(name);
+    }
     const showTab  = () => {
         switch (activeTab) {
             case "tournamentTab":
-                return <Tournament fetchedUser={props.fetchedUser}/>;
+                return <Tournament fetchedUser={props.fetchedUser} changePanel = {changePanel}/>;
             case "tavernTab":
-                return <Tavern fetchedUser={props.fetchedUser}/>;
+                return <Tavern fetchedUser={props.fetchedUser} changePanel = {changePanel}/>;
             case "profileTab":
-                return <Profile fetchedUser={props.fetchedUser}/>;
+                return <Profile fetchedUser={props.fetchedUser} changePanel = {changePanel}/>;
         }
         return null;
-    }
-
-    const changePanel = (name) => {
-        setActivePanel(name);
     }
 
     return (<View activePanel={activePanel}>

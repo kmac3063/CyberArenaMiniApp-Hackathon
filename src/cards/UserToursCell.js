@@ -19,6 +19,7 @@ const UserToursCell = (props) => {
                 header={props.title["Name"]}
                 subheader={props.title["GameType"]}
                 asideMode="expand"
+                onClick={()=>{props.changePanel("OrgTourView")}}
             />
     )
 }

@@ -85,7 +85,7 @@ const Tournament = (props) => {
                 :
                     <CardScroll>
                         {allTournamentsInfo.createdTournaments.map((tour) => {
-                            return <UserToursCell title={tour}/>
+                            return <UserToursCell title={tour} changePanel = {props.changePanel}/>
                         })}
                     </CardScroll>}
             </Group>
@@ -95,7 +95,7 @@ const Tournament = (props) => {
                 </Cell>
                 <CardScroll>
                     {allTournamentsInfo.myTournaments.map((tour) => {
-                        return <UserToursCell title = {tour}/>
+                        return <UserToursCell title = {tour} changePanel = {props.changePanel}/>
                     })}
                 </CardScroll>
             </Group>
@@ -105,7 +105,7 @@ const Tournament = (props) => {
                 </Cell>
                 <CardGrid>
                     {allTournamentsInfo.recomendedTournaments.map((tour) => {
-                        return <OtherToursCell title = {tour}/>
+                        return <OtherToursCell title = {tour} changePanel = {props.changePanel}/>
                     })}
                 </CardGrid>
             </Group>
