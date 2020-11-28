@@ -63,6 +63,7 @@ const Tournament = (props) => {
                                                 Создать новый турнир
                                             </Title>
                                         </Avatar>
+                                        <div style={{height: 100, width: 300}}/>
                                     </table>
                                 </Card>
                             </td>
@@ -74,7 +75,6 @@ const Tournament = (props) => {
                             return <UserToursCell title={tour}/>
                         })}
                     </CardScroll>}
-
             </Group>
             <Group separator="hide" style={{ position: 'relative', zIndex: 0 }}>
                 <Cell>
