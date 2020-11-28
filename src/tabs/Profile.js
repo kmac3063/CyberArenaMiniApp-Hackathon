@@ -5,23 +5,18 @@ import Avatar from "@vkontakte/vkui/dist/components/Avatar/Avatar";
 import RichCell from "@vkontakte/vkui/dist/components/RichCell/RichCell";
 import DataBase from "../server/DataBase"
 import Icon28WriteSquareOutline from '@vkontakte/icons/dist/28/write_square_outline';
-import {Button, ModalPage, ModalRoot, Search, SimpleCell} from "@vkontakte/vkui";
-import ModalPageHeader from "@vkontakte/vkui/dist/components/ModalPageHeader/ModalPageHeader";
+import {odalRoot, SimpleCell} from "@vkontakte/vkui";
 import PanelHeaderButton from "@vkontakte/vkui/dist/components/PanelHeaderButton/PanelHeaderButton";
-import FormLayout from "@vkontakte/vkui/dist/components/FormLayout/FormLayout";
-import Textarea from "@vkontakte/vkui/dist/components/Textarea/Textarea";
-import Icon24Done from '@vkontakte/icons/dist/24/done';
-import Icon24Cancel from '@vkontakte/icons/dist/24/cancel';
 import Icon24Add from '@vkontakte/icons/dist/24/add';
 import CardGrid from "@vkontakte/vkui/dist/components/CardGrid/CardGrid";
 import Card from "@vkontakte/vkui/dist/components/Card/Card";
 import GameCell from "../cards/GameCell";
-import PanelHeader from "@vkontakte/vkui/dist/components/PanelHeader/PanelHeader";
 import ServiceCell from "../cards/ServiceCell";
 import AddService from "../modals/AddService";
 import AddGame from "../modals/AddGame";
 import EditProfile from "../modals/EditProfile";
 import ChangeAvatar from "../modals/ChangeAvatar";
+import ModalRoot from "@vkontakte/vkui/dist/components/ModalRoot/ModalRoot";
 
 const Profile = (props) => {
     const [activeModal, setActiveModal] = useState(null);

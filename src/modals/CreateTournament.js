@@ -1,33 +1,79 @@
 import React, {useState} from 'react';
-import View from "@vkontakte/vkui/dist/components/View/View";
-import Panel from "@vkontakte/vkui/dist/components/Panel/Panel";
-import PanelHeader from "@vkontakte/vkui/dist/components/PanelHeader/PanelHeader";
-import Tabs from "@vkontakte/vkui/dist/components/Tabs/Tabs";
-import TabsItem from "@vkontakte/vkui/dist/components/TabsItem/TabsItem";
-import Separator from "@vkontakte/vkui/dist/components/Separator/Separator";
 import ModalPageHeader from "@vkontakte/vkui/dist/components/ModalPageHeader/ModalPageHeader";
 import PanelHeaderButton from "@vkontakte/vkui/dist/components/PanelHeaderButton/PanelHeaderButton";
 import FormLayout from "@vkontakte/vkui/dist/components/FormLayout/FormLayout";
-import Textarea from "@vkontakte/vkui/dist/components/Textarea/Textarea";
 import {ModalPage} from "@vkontakte/vkui";
+import FormLayoutGroup from "@vkontakte/vkui/dist/components/FormLayoutGroup/FormLayoutGroup";
+import SelectMimicry from "@vkontakte/vkui/dist/components/SelectMimicry/SelectMimicry";
+import Radio from "@vkontakte/vkui/dist/components/Radio/Radio";
+import Input from "@vkontakte/vkui/dist/components/Input/Input";
+import Icon24Done from '@vkontakte/icons/dist/24/done';
+import Icon24Cancel from '@vkontakte/icons/dist/24/cancel';
+import Checkbox from "@vkontakte/vkui/dist/components/Checkbox/Checkbox";
 
 const CreateTournament = (props) => {
-    // return (<ModalPage
-    //     id={"addGame"}
-    //     onClose={() => {setActiveModal(null)}}
-    //     header={
-    //         <ModalPageHeader
-    //             left={<PanelHeaderButton onClick={() => {setActiveModal(null)}}><Icon24Cancel/></PanelHeaderButton>}
-    //             right={<PanelHeaderButton onClick={saveGame}><Icon24Done/></PanelHeaderButton>}
-    //         >
-    //             Добавление игры
-    //         </ModalPageHeader>
-    //     }
-    // >
-    //     <FormLayout>
-    //         <Textarea top="Новый игра" placeholder="Какую игру вы хотите добавить?" />
-    //     </FormLayout>
-    // </ModalPage>);
+    const [tourName, setTourName] = useState("Example");
+    const [dateBegin, setDateBegin] = useState();
+    const [dateEnd, setDateEnd] = useState();
+    const [ruleText, setRuleText] = useState();
+    const [tourType, setTourType] = useState();
+    const [tourPicture, setTourPicture] = useState();
+    const [maxCommand, setMaxCommand] = useState();
+    const [gameName, setGameName] = useState();
+    const [price, setPrice] = useState();
+    const [prize, setPrize] = useState();
+
+    const buildTour = () => {
+
+    }
+
+    return <ModalPage
+        id={"createTournament"}
+        header={
+            <ModalPageHeader
+                left={<PanelHeaderButton onClick={props.out}><Icon24Cancel /></PanelHeaderButton>}
+                right={<PanelHeaderButton onClick={() => props.create(buildTour())}> <Icon24Done /></PanelHeaderButton>}
+            >
+                Фильтры
+            </ModalPageHeader>
+        }
+    >
+        <FormLayout>
+            {/*<FormLayoutGroup>*/}
+            {/*    <Button mode="secondary" onClick={() => this.setActiveModal(MODAL_PAGE_COUNTRIES)} size="xl">Выбор страны</Button>*/}
+            {/*    <Button mode="secondary" onClick={() => this.setActiveModal(MODAL_PAGE_STORY_FEEDBACK)} size="xl">Просмотры истории</Button>*/}
+            {/*    <Button mode="secondary" onClick={() => this.setActiveModal(MODAL_PAGE_USER_INFO)} size="xl">Информация о пользователе</Button>*/}
+            {/*</FormLayoutGroup>*/}
+
+            <SelectMimicry top="Страна" placeholder="Выбрать страну" onClick={() => {}} />
+            <SelectMimicry top="Город" placeholder="Выбрать город" disabled />
+
+            <FormLayoutGroup top="Пол">
+                <Radio name="sex" value={0} defaultChecked>Любой</Radio>
+                <Radio name="sex" value={1}>Мужской</Radio>
+                <Radio name="sex" value={2}>Женский</Radio>
+            </FormLayoutGroup>
+
+            <SelectMimicry top="Школа" placeholder="Выбрать школу" disabled />
+            <SelectMimicry top="Университет" placeholder="Выбрать университет" disabled />
+
+            <FormLayoutGroup top="Дополнительно">
+                <Checkbox>С фотографией</Checkbox>
+                <Checkbox>Сейчас на сайте</Checkbox>
+            </FormLayoutGroup>
+
+            <FormLayoutGroup top="Работа">
+                <Input placeholder="Место работы" />
+                <Input placeholder="Должность" />
+            </FormLayoutGroup>
+
+            <FormLayoutGroup top="Дата рождения">
+                <SelectMimicry placeholder="День рождения" disabled />
+                <SelectMimicry placeholder="Месяц рождения" disabled />
+                <SelectMimicry placeholder="Год рождения" disabled />
+            </FormLayoutGroup>
+        </FormLayout>
+    </ModalPage>
 }
 
 export default CreateTournament;
