@@ -11,7 +11,7 @@ class DataBase {
         //запрос к бд
         let props = {};
         props.games = ["Paladins", "Dota 2", "Paladins", "Dota 2", "Paladins", "Dota 2"];
-        props.links = ["Vk", "Steam"];
+        props.services = ["Vk", "Steam", "Vk", "Steam", "Vk", "Steam", "Vk", "Steam"];
         props.avatar = dotaImg;//fetchUser.photo_200;
         props.nickname = "Igor";//fetchUser.first_name;
         return props;
@@ -23,7 +23,7 @@ class DataBase {
         return tmp[name];
     }
 
-    static getAppAvatar(name) {
+    static getServiceAvatar(name) {
         // запрос к бд
         let tmp = {"Vk" : vkImg, "Steam" : steamImg};
         return tmp[name];

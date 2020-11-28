@@ -15,7 +15,7 @@ import PanelHeader from "@vkontakte/vkui/dist/components/PanelHeader/PanelHeader
 
 const HomeWithTabs = (props) => {
     const [activePanel, setActivePanel] = useState('panel1');
-    const [activeTab, setActiveTab] = useState('tournamentTab');
+    const [activeTab, setActiveTab] = useState('profileTab');
 
     const showTab  = () => {
         switch (activeTab) {
@@ -55,7 +55,6 @@ const HomeWithTabs = (props) => {
                         Профиль
                     </TabsItem>
                 </Tabs>
-                <Separator />
                 {showTab()}
             </Panel>
         </View>);

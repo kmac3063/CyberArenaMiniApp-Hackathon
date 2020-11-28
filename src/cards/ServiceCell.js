@@ -7,12 +7,12 @@ import RichCell from "@vkontakte/vkui/dist/components/RichCell/RichCell";
 import SimpleCell from "@vkontakte/vkui/dist/components/SimpleCell/SimpleCell";
 import Text from "@vkontakte/vkui/dist/components/Typography/Text/Text";
 
-const GameCell = (props) => {
+const ServiceCell = (props) => {
     return (
         <SimpleCell before={<Avatar size={36} src={props.img} />}
-                    after={<PanelHeaderButton><Icon24Cancel color={"black"}/></PanelHeaderButton>}>
+                    after={<PanelHeaderButton><Icon24Cancel/></PanelHeaderButton>}>
             <Text style={{paddingLeft : 20}}>{props.title}</Text>
         </SimpleCell>)
 }
 
-export default GameCell
+export default ServiceCell
