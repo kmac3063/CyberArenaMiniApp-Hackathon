@@ -15,12 +15,14 @@ const UserToursCell = (props) => {
     return (
         <Card size="m" mode="shadow" >
             <div style={{
-                height: 228,
-                width: 448
+                height: 200,
+                width: 300
             }} >
                 <table style={{display:'flex',width : '100%', height: '50%',
                 }}>
-                    <img src={defHS} width={"100%"} align={"Center"} />
+                    <Avatar src={defHS} align={"Center"} mode={"app"}
+                            style={{marginBottom : 50, height: 100, width: 300,
+                                overflow : "hidden", objectFit : "cover"}}/>
                 </table>
                 <table style={{width : '100%'}}>
                     <tr style={{width : '100%'}}>
