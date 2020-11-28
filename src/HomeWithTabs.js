@@ -10,16 +10,21 @@ import Profile from "./tabs/Profile";
 import Tavern from "./tabs/Tavern";
 import Tournament from "./tabs/Tournament";
 import PanelHeaderButton from "@vkontakte/vkui/dist/components/PanelHeaderButton/PanelHeaderButton";
-import {IOS} from "@vkontakte/vkui";
+import {IOS, PanelHeaderBack} from "@vkontakte/vkui";
 import PanelHeader from "@vkontakte/vkui/dist/components/PanelHeader/PanelHeader";
 import PlayerTourView from "./PlayerTourView";
 import OrgTourView from "./OrgTourView";
+import Group from "@vkontakte/vkui/dist/components/Group/Group";
 
 const HomeWithTabs = (props) => {
     const [activePanel, setActivePanel] = useState('panel1');
     const [activeTab, setActiveTab] = useState('tournamentTab');
+    const [tempProps, setTempProps] = useState(null);
 
-    const changePanel = (name) => {
+    const changePanel = (name, props) => {
+        if (props != null) {
+            setTempProps(props);
+        }
         setActivePanel(name);
     }
     const showTab  = () => {
@@ -61,11 +66,15 @@ const HomeWithTabs = (props) => {
                 </Tabs>
                 {showTab()}
             </Panel>
-            <Panel id={"playerTourView"}>
-                <PlayerTourView changePanel={changePanel}/>
+            <Panel id={"PlayerTourView"}>
+                <PanelHeader left={<PanelHeaderBack onClick={() => changePanel('panel1')}/>}>
+                    {tempProps && tempProps.title.GameType}
+                </PanelHeader>
+                <PlayerTourView changePanel={changePanel} props={tempProps}/>
             </Panel>
             <Panel id={"OrgTourView"}>
-                <OrgTourView changePanel={changePanel}/>
+                <PanelHeader separator={false} left={<PanelHeaderBack onClick={() => changePanel('panel1')}/>}/>
+                <OrgTourView changePanel={changePanel} props={tempProps}/>
             </Panel>
         </View>);
 }

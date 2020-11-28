@@ -5,7 +5,7 @@ import Avatar from "@vkontakte/vkui/dist/components/Avatar/Avatar";
 import RichCell from "@vkontakte/vkui/dist/components/RichCell/RichCell";
 import DataBase from "../server/DataBase"
 import Icon28WriteSquareOutline from '@vkontakte/icons/dist/28/write_square_outline';
-import {odalRoot, SimpleCell} from "@vkontakte/vkui";
+import {SimpleCell} from "@vkontakte/vkui";
 import PanelHeaderButton from "@vkontakte/vkui/dist/components/PanelHeaderButton/PanelHeaderButton";
 import Icon24Add from '@vkontakte/icons/dist/24/add';
 import CardGrid from "@vkontakte/vkui/dist/components/CardGrid/CardGrid";
@@ -17,6 +17,8 @@ import AddGame from "../modals/AddGame";
 import EditProfile from "../modals/EditProfile";
 import ChangeAvatar from "../modals/ChangeAvatar";
 import ModalRoot from "@vkontakte/vkui/dist/components/ModalRoot/ModalRoot";
+import InfoRow from "@vkontakte/vkui/dist/components/InfoRow/InfoRow";
+import Link from "@vkontakte/vkui/dist/components/Link/Link";
 
 const Profile = (props) => {
     const [activeModal, setActiveModal] = useState(null);
@@ -42,6 +44,7 @@ const Profile = (props) => {
         closeModal();
     }
 
+    let link = 'https://vk.com/id' + user.id;
     return (<Group>
         <Title level="2" weight="semibold" style={{"textAlign" : "center"}} separator={false}>Основная информация</Title>
 
@@ -78,21 +81,12 @@ const Profile = (props) => {
                     </div>
                 </div>
             </Card>
-
-            <Card size="l" mode="shadow" style={{marginTop : 30}}>
-                <SimpleCell after={<PanelHeaderButton onClick={() => setActiveModal("addService")}>
-                    <Icon24Add/>
-                </PanelHeaderButton>}>Ссылки</SimpleCell>
-                <div style={{ height: 110, backgroundColor : "", "overflowY" : "auto"}}>
-                    <Group>
-                        {user.services.map(serviceName => {
-                            return <ServiceCell title = {serviceName} img={DataBase.getServiceAvatar(serviceName)}/>
-                        })
-                        }
-                    </Group>
-                </div>
-            </Card>
         </CardGrid>
+        <SimpleCell>
+            <InfoRow header="Ссылка ВКонтакте">
+                {/*<Link href=link>{user.firstName} {user.secondName}</Link>*/}
+            </InfoRow>
+        </SimpleCell>
     </Group>)
 }
 

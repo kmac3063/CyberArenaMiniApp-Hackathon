@@ -10,7 +10,7 @@ import Icon28WriteSquareOutline from '@vkontakte/icons/dist/28/write_square_outl
 import PanelHeader from "@vkontakte/vkui/dist/components/PanelHeader/PanelHeader";
 import Icon28AddOutline from "@vkontakte/icons/dist/28/add_outline";
 import PanelHeaderButton from "@vkontakte/vkui/dist/components/PanelHeaderButton/PanelHeaderButton";
-import {Cell, Search} from "@vkontakte/vkui";
+import {Cell, Search, Separator} from "@vkontakte/vkui";
 import CellButton from "@vkontakte/vkui/dist/components/CellButton/CellButton";
 import Text from "@vkontakte/vkui/dist/components/Typography/Text/Text";
 import Header from "@vkontakte/vkui/dist/components/Header/Header";
@@ -24,6 +24,7 @@ import CreateTournament from "../modals/CreateTournament";
 import ModalRoot from "@vkontakte/vkui/dist/components/ModalRoot/ModalRoot";
 import Banner from "@vkontakte/vkui/dist/components/Banner/Banner";
 import OtherToursCell from "../cards/OtherToursCell";
+import Icon16Add from '@vkontakte/icons/dist/16/add';
 
 const Tournament = (props) => {
     const [activeModal, setActiveModal] = useState(null);
@@ -31,14 +32,14 @@ const Tournament = (props) => {
 
     const closeModal = () => setActiveModal(null);
     const createTournament = (tour) => {
-        console.log(tour.tourName);
-        console.log(tour.dateBegin);
-        console.log(tour.dateEnd);
-        console.log(tour.ruleText);
-        console.log(tour.tourTupe);
-        console.log(tour.maxCommand);
-        console.log(tour.gameName);
-        console.log(tour.tourDescription);
+        // console.log(tour.tourName);
+        // console.log(tour.dateBegin);
+        // console.log(tour.dateEnd);
+        // console.log(tour.ruleText);
+        // console.log(tour.tourTupe);
+        // console.log(tour.maxCommand);
+        // console.log(tour.gameName);
+        // console.log(tour.tourDescription);
         closeModal();
     }
     return (
@@ -89,26 +90,30 @@ const Tournament = (props) => {
                         })}
                     </CardScroll>}
             </Group>
-            <Group separator="hide" style={{ position: 'relative', zIndex: 0 }}>
-                <Cell>
-                    Турниры в которых я участвую
-                </Cell>
-                <CardScroll>
+            <Separator/>
+            <Group style={{ position: 'relative', zIndex: 0, marginBottom : 20}}>
+                <Header mode="secondary">Турниры в которых я участвую</Header>
+
+
                     {allTournamentsInfo.myTournaments.map((tour) => {
                         return <UserToursCell title = {tour} changePanel = {props.changePanel}/>
                     })}
-                </CardScroll>
+
             </Group>
-            <Group separator="hide" style={{ position: 'relative', zIndex: 0 }}>
-                <Cell>
-                    Рекомендуемые турниры
-                </Cell>
-                <CardGrid>
-                    {allTournamentsInfo.recomendedTournaments.map((tour) => {
-                        return <OtherToursCell title = {tour} changePanel = {props.changePanel}/>
-                    })}
-                </CardGrid>
+            <Separator/>
+            <Group  style={{ position: 'relative', zIndex: 0, marginBottom : 20}}>
+                <Header mode="secondary">Рекомендуемые турниры</Header>
+                {allTournamentsInfo.recomendedTournaments.map((tour) => {
+                    return <OtherToursCell title = {tour} changePanel = {props.changePanel}/>
+                })}
             </Group>
+            <Banner
+                header="Главное о киберспорте"
+                subheader="Объявлены победители региональной серии Blitz CIS Cup по World of Tanks Blitz"
+                asideMode="expand"
+                onClick={() => {}}
+                style={{marginBottom : 20}}
+            />
         </Group>
 
     )

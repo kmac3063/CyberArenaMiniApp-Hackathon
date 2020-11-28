@@ -7,7 +7,7 @@ const OrgTourView = (props) => {
 
     return <Group>
         <PanelHeader separator={false} left={<PanelHeaderBack onClick={() =>{props.changePanel("panel1")}}/>}>
-            123
+            1234
         </PanelHeader>
     </Group>
 }

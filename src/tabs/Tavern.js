@@ -52,10 +52,6 @@ const Tavern = props => {
                     <Cell before={<Avatar />} description={"Startcraft 2"}>Александр Саранцев</Cell>
                 </List>
             </Group>
-
-                    <FixedLayout vertical="bottom">
-                        <PromoBanner bannerData={promoBannerProps} />
-                    </FixedLayout>
         </Group>)
 }
 

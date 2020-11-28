@@ -70,11 +70,30 @@ class DataBase {
             "imgUrl": "https://yt3.ggpht.com/a/AATXAJxeDvSjsIJHDtOzLYWftko-CFyNv73g294JpzLmEw=s900-c-k-c0xffffffff-no-rj-mo"
         }
         props.myTournaments.push(tournament4);
+        props.myTournaments.push(tournament1);
+        props.myTournaments.push(tournament2);
         props.recomendedTournaments = [];
         props.recomendedTournaments.push(tournament3);
         props.recomendedTournaments.push(tournament1);
         props.recomendedTournaments.push(tournament2);
         return props;
+    }
+
+    static getTournamentInfo(tourId) {
+        // Запрос по tourId в базу данных турниров и вытягиваем все об этом турнире
+        let prop = {};
+        prop.orgName = "Шпыро Владислав"
+        prop.tourName = "Школьный турнир Dota 2";
+        prop.dateBegin = "Понедельник, 5 декабря 2020 г. в 05:00 Мск";
+        prop.dateEnd = "Понедельник, 15 декабря 2020 г. в 15:00 Мск";
+        prop.ruleText = "Нельзя ругаться, ставить игру на паузу и спамить в чат.";
+        prop.tourType = "open"; // либо "close"
+        prop.maxCommand = 15;
+        prop.gameName = "Dota 2";
+        prop.tourDescription = "Каждый школьник может стать киберспортсменом!!!!!";
+
+        prop.img = "https://sun9-3.userapi.com/impg/hszc2IQ8pmyZ0hleDDL9uATIfUKVd3rhyX06eg/9hAYCXvrAlk.jpg?size=597x295&quality=96&proxy=1&sign=6a4bd45d61e7effea92637d07b050022";
+        return prop;
     }
 
     static getTavernInfo(fetchUser){

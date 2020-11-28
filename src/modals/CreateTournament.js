@@ -32,10 +32,10 @@ const CreateTournament = (props) => {
     const buildTour = () => {
         let prop = {};
         prop.tourName = tourName;
-        prop.dateBegin = dateBegin1 + '.' + dateBegin2 + '.' + dateBegin3;
-        prop.dateEnd = dateEnd1 + '.' + dateEnd2 + '.' + dateEnd3;
+        prop.dateBegin = dateBegin1.toString() + '.' + dateBegin2.toString() + '.' + dateBegin3.toString();
+        prop.dateEnd = dateEnd1.toString() + '.' + dateEnd2.toString() + '.' + dateEnd3.toString();
         prop.ruleText = ruleText;
-        prop.tourTupe = tourType;
+        prop.tourType = tourType;
         prop.maxCommand = maxCommand;
         prop.gameName = gameName;
         prop.tourDescription = tourDescription;
@@ -70,14 +70,14 @@ const CreateTournament = (props) => {
                 <Textarea/>
             </FormLayout>
             <FormLayoutGroup top="Дата начала">
-                <Input placeholder="Число" type="number" onChange={(e) => setDateBegin1(e)}/>
-                <Input placeholder="Месяц" type="number" onChange={(e) => setDateBegin2(e)}/>
-                <Input placeholder="Год" type="number" onChange={(e) => setDateBegin3(e)}/>
+                <Input placeholder="Число" type="number" onChange={(e) => setDateBegin1(e.target.value)}/>
+                <Input placeholder="Месяц" type="number" onChange={(e) => setDateBegin2(e.target.value)}/>
+                <Input placeholder="Год" type="number" onChange={(e) => setDateBegin3(e.target.value)}/>
             </FormLayoutGroup>
             <FormLayoutGroup top="Дата конца">
-                <Input placeholder="Число" type="number" onChange={(e) => setDateEnd1(e)}/>
-                <Input placeholder="Месяц" type="number" onChange={(e) => setDateEnd2(e)}/>
-                <Input placeholder="Год" type="number" onChange={(e) => setDateEnd3 (e)}/>
+                <Input placeholder="Число" type="number" onChange={(e) => setDateEnd1(e.target.value)}/>
+                <Input placeholder="Месяц" type="number" onChange={(e) => setDateEnd2(e.target.value)}/>
+                <Input placeholder="Год" type="number" onChange={(e) => setDateEnd3 (e.target.value)}/>
             </FormLayoutGroup>
 
 

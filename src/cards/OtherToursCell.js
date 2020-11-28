@@ -15,13 +15,18 @@ import Button from "@vkontakte/vkui/dist/components/Button/Button";
 const OtherToursCell = (props) => {
 
     return (
-        <Banner
-            size = "m"
-            before={<Avatar size={112} mode="image" src={props.title["imgUrl"]} />}
-            header={props.title["Name"]}
-            subheader={props.title["GameType"]}
-            actions={<Button>Подробнее</Button>}
-        />
+        <SimpleCell before={<Avatar mode="app" src={props.title["imgUrl"]} />}
+                    description={props.title["GameType"]} multiline={false}
+                    onClick={()=>{props.changePanel("PlayerTourView", props)}}>
+            {props.title["Name"]}
+        </SimpleCell>
+        // <Banner
+        //     size = "m"
+        //     before={<Avatar size={100} mode="image" src={props.title["imgUrl"]} />}
+        //     header={props.title["Name"]}
+        //     subheader={props.title["GameType"]}
+        //     actions={<Button onClick={()=>{props.changePanel("PlayerTourView", props)}}>Подробнее</Button>}
+        // />
     )
 }
 
