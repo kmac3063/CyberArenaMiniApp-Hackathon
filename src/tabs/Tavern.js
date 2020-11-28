@@ -44,6 +44,12 @@ const Tavern = props => {
                     <Cell before={<Avatar />} description={"Among us"}>Алексей Алексеев</Cell>
                     <Cell before={<Avatar />} description={"DOTA 2"}>Иван Петров</Cell>
                     <Cell before={<Avatar />} description={"Startcraft 2"}>Александр Саранцев</Cell>
+                    <Cell before={<Avatar />} description={"Among us"}>Алексей Алексеев</Cell>
+                    <Cell before={<Avatar />} description={"DOTA 2"}>Иван Петров</Cell>
+                    <Cell before={<Avatar />} description={"Startcraft 2"}>Александр Саранцев</Cell>
+                    <Cell before={<Avatar />} description={"Among us"}>Алексей Алексеев</Cell>
+                    <Cell before={<Avatar />} description={"DOTA 2"}>Иван Петров</Cell>
+                    <Cell before={<Avatar />} description={"Startcraft 2"}>Александр Саранцев</Cell>
                 </List>
             </Group>
 
