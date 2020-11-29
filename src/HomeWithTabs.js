@@ -5,7 +5,6 @@ import View from "@vkontakte/vkui/dist/components/View/View";
 import Tabs from "@vkontakte/vkui/dist/components/Tabs/Tabs";
 import TabsItem from "@vkontakte/vkui/dist/components/TabsItem/TabsItem";
 import Separator from "@vkontakte/vkui/dist/components/Separator/Separator";
-
 import Profile from "./tabs/Profile";
 import Tavern from "./tabs/Tavern";
 import Tournament from "./tabs/Tournament";
@@ -15,9 +14,13 @@ import PanelHeader from "@vkontakte/vkui/dist/components/PanelHeader/PanelHeader
 import PlayerTourView from "./PlayerTourView";
 import OrgTourView from "./OrgTourView";
 import Group from "@vkontakte/vkui/dist/components/Group/Group";
+import Placeholder from "@vkontakte/vkui/dist/components/Placeholder/Placeholder";
+import Icon56GhostOutline from '@vkontakte/icons/dist/56/ghost_outline';
+import Div from "@vkontakte/vkui/dist/components/Div/Div";
+import Button from "@vkontakte/vkui/dist/components/Button/Button";
 
 const HomeWithTabs = (props) => {
-    const [activePanel, setActivePanel] = useState('panel1');
+    const [activePanel, setActivePanel] = useState('panel0');
     const [activeTab, setActiveTab] = useState('tournamentTab');
     const [tempProps, setTempProps] = useState(null);
 
@@ -40,6 +43,18 @@ const HomeWithTabs = (props) => {
     }
 
     return (<View activePanel={activePanel}>
+            <Panel id={"panel0"}>
+                <div style={{marginTop : "20%"}}>{<Placeholder
+                    icon={<Icon56GhostOutline />}
+                    header={`Приветствую, ${props.fetchedUser ? props.fetchedUser.first_name : "XXXXXX"}!`}
+                >
+                        Отличный день, чтобы поиграть, верно?
+                    </Placeholder>}
+                    <Div>
+                        <Button size="xl" mode="secondary" onClick={() => changePanel("panel1")}>Начать!</Button>
+                    </Div>
+                </div>
+            </Panel>
             <Panel id={"panel1"}>
                 <PanelHeader>
                     КиберАрена

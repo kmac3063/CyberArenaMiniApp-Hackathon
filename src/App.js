@@ -52,6 +52,7 @@ import Root from "@vkontakte/vkui/dist/components/Root/Root";
 
 import HomeWithTabs from "./HomeWithTabs";
 import CreateTournament from './modals/CreateTournament';
+import DataBase from "./server/DataBase";
 
 const App = () => {
 	const [activeView, setActiveView] = useState('home');
@@ -72,6 +73,7 @@ const App = () => {
 		});
 		async function fetchData() {
 			const user = await bridge.send('VKWebAppGetUserInfo');
+			console.log(DataBase.getUserInfo(user.id));
 			setUser(user);
 			setPopout(null);
 		}
