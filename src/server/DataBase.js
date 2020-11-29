@@ -15,7 +15,10 @@ import doom from "../img/r_pal_tur.png";
 
 // если не получили, то создать
 class DataBase {
-    static s = "http://127.0.0.1:8000";
+    static s = "http://28e036ec9116.ngrok.io/v1/api/cyberapp/";
+
+    static test_req = "contest/all";
+
 
     static getUserInfo(fetchUser) {
 
@@ -30,6 +33,7 @@ class DataBase {
 
     static getGameAvatar(name) {
         // запрос к бд
+
         let tmp = {"Paladins" : paladinsImg, "Dota 2" : dotaImg};
         return tmp[name];
     }
