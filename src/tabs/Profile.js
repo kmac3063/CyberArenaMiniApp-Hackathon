@@ -22,6 +22,7 @@ import Link from "@vkontakte/vkui/dist/components/Link/Link";
 
 const Profile = (props) => {
     const [activeModal, setActiveModal] = useState(null);
+    const [userAvatar, setUserAvatar] = useState(null);
     let user = DataBase.getUserInfo(props.fetchedUser);
 
     const closeModal = () => {
@@ -41,6 +42,7 @@ const Profile = (props) => {
         closeModal();
     }
     const saveAvatar = (img) => {
+        setUserAvatar(img);
         closeModal();
     }
 
@@ -58,7 +60,7 @@ const Profile = (props) => {
         {props.fetchedUser && <RichCell style={{padding : "0px 5%"}}
             disabled
             multiline
-            before={<Avatar size={54} src={user.avatar} onClick={() => setActiveModal("changeAvatar")}/>}
+            before={<Avatar size={54} src={userAvatar ? userAvatar : user.avatar} onClick={() => setActiveModal("changeAvatar")}/>}
             text={props.fetchedUser.city.title}
             caption={props.fetchedUser.city.title}
             after={<Icon28WriteSquareOutline onClick={()=>{setActiveModal("editProfile")}}/>}>

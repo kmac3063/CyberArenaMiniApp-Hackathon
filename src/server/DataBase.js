@@ -15,7 +15,10 @@ import doom from "../img/r_pal_tur.png";
 
 // если не получили, то создать
 class DataBase {
+    static s = "http://127.0.0.1:8000";
+
     static getUserInfo(fetchUser) {
+
         //запрос к бд
         let props = {};
         props.games = ["Paladins", "Dota 2", "Paladins", "Dota 2", "Paladins", "Dota 2"];
