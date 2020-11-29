@@ -19,6 +19,8 @@ import ChangeAvatar from "../modals/ChangeAvatar";
 import ModalRoot from "@vkontakte/vkui/dist/components/ModalRoot/ModalRoot";
 import InfoRow from "@vkontakte/vkui/dist/components/InfoRow/InfoRow";
 import Link from "@vkontakte/vkui/dist/components/Link/Link";
+import Header from "@vkontakte/vkui/dist/components/Header/Header";
+import Text from "@vkontakte/vkui/dist/components/Typography/Text/Text";
 
 const Profile = (props) => {
     const [activeModal, setActiveModal] = useState(null);
@@ -48,8 +50,9 @@ const Profile = (props) => {
 
     let link = 'https://vk.com/id' + user.id;
     return (<Group>
-        <Title level="2" weight="semibold" style={{"textAlign" : "center"}} separator={false}>Основная информация</Title>
-
+        <Group>
+            <Header mode="first" style={{marginBottom: 30}}>Основная информация</Header>
+        </Group>
         <ModalRoot activeModal={activeModal}>
             <EditProfile id="editProfile" out={closeModal} save={saveProfile} onClose={closeModal}/>
             <AddGame id="addGame" out={closeModal} save={saveGame} onClose={closeModal}/>
@@ -61,18 +64,18 @@ const Profile = (props) => {
             disabled
             multiline
             before={<Avatar size={54} src={userAvatar ? userAvatar : user.avatar} onClick={() => setActiveModal("changeAvatar")}/>}
-            text={props.fetchedUser.city.title}
-            caption={props.fetchedUser.city.title}
+            caption={"Никнейм: BLGALEX"}
             after={<Icon28WriteSquareOutline onClick={()=>{setActiveModal("editProfile")}}/>}>
                     {user.nickname}
                 </RichCell>}
 
         <CardGrid style={{"position" : "relative", "zIndex" : "0"}}>
-            <Card size="l" mode="shadow" style={{marginTop : 25}}>
-                <SimpleCell after={<PanelHeaderButton onClick={() => setActiveModal("addGame")}>
+            <Group separator={"show"}>
+                <SimpleCell before={<PanelHeaderButton onClick={() => setActiveModal("addGame")}>
                     <Icon24Add/>
                 </PanelHeaderButton>}>
-                    Игры</SimpleCell>
+                    <Text weight={"regular"} >Игры</Text>
+                </SimpleCell>
                 <div>
                     <div style={{ height: 110, backgroundColor : "", "overflowY" : "auto"}}>
                         <Group>
@@ -82,7 +85,7 @@ const Profile = (props) => {
                         </Group>
                     </div>
                 </div>
-            </Card>
+            </Group>
         </CardGrid>
         <SimpleCell>
             <InfoRow header="Ссылка ВКонтакте">
