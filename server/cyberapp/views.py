@@ -118,11 +118,20 @@ class PlayersContestsAPIView(APIView):
         for c in lst:
             print(getattr(c, 'players'))
 
-
         return JsonResponse(
             "",
             safe=False
         )
+
+
+class ChangeNicknameAPIView(APIView):
+    def put(self, request, format=None):
+        d = request.GET.dict()
+        vk_id = d['id']
+        new_nickname = d['nickname']
+        p = Player.objects.get(vk_id=vk_id)
+        setattr(p, 'nickname', new_nickname)
+        return JsonResponse({'success': True}, safe=False)
 
 
 class ParticipationAPIView(APIView):
