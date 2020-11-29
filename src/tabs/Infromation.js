@@ -12,11 +12,12 @@ const Information = (props) => {
 
 
     return <div>
-        <div style={{marginLeft: 12, marginBottom: 50}}>
+        <Group separator={"show"}>
+        <div style={{marginLeft: 12, marginBottom: 0, width: 302, height: 131}}>
             <Avatar src={tour.img} mode={"app"} style={{width: 302, height: 131}}/>
         </div>
-        <Separator/>
-        <Group>
+        </Group>
+        <Group separator={"show"}>
             <Header mode="secondary">Информация о турнире</Header>
             <SimpleCell multiline>
                 <InfoRow header="Организатор">
